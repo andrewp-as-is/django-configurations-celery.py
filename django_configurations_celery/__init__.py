@@ -86,7 +86,7 @@ class CeleryConfiguration(Configuration):
     CELERY_DEFAULT_EXCHANGE_TYPE = values.Value('direct')
     CELERY_DEFAULT_QUEUE = values.Value('celery')
     CELERY_DEFAULT_RATE_LIMIT = values.Value(None)
-    # CELERY_DEFAULT_ROUTING_KEY
+    # CELERY_DEFAULT_ROUTING_KEY str
     CELERY_EAGER_PROPAGATES = values.BooleanValue(False)
     CELERY_IGNORE_RESULT = values.BooleanValue(False)
     CELERY_PUBLISH_RETRY = values.BooleanValue(True)
@@ -113,7 +113,7 @@ class CeleryConfiguration(Configuration):
     CELERYD_WORKER_LOST_WAIT = values.FloatValue(10.0)
     CELERYD_MAX_TASKS_PER_CHILD = values.PositiveIntegerValue(None)
     CELERYD_POOL = values.Value('prefork')
-    # CELERYD_POOL_PUTLOCKS
+    # CELERYD_POOL_PUTLOCKS ?
     CELERYD_POOL_RESTARTS = values.BooleanValue(False)
     CELERYD_PREFETCH_MULTIPLIER = values.PositiveIntegerValue(4)
     CELERYD_REDIRECT_STDOUTS = values.BooleanValue(True)
