@@ -78,7 +78,7 @@ class CeleryConfiguration(Configuration):
     CELERY_ACKS_LATE = values.BooleanValue(False)
     CELERY_ACKS_ON_FAILURE_OR_TIMEOUT = values.BooleanValue(True)
     CELERY_ALWAYS_EAGER = values.BooleanValue(False)
-    CELERY_ANNOTATIONS = None
+    CELERY_ANNOTATIONS = None # dict/list
     CELERY_COMPRESSION = values.Value(None)
     CELERY_CREATE_MISSING_QUEUES = values.BooleanValue(True)
     CELERY_DEFAULT_DELIVERY_MODE = values.Value('persistent')
