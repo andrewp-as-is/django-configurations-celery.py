@@ -1,13 +1,7 @@
-from setuptools import setup
+import setuptools
 
-setup(
+setuptools.setup(
     name='django-configurations-celery',
-    version='2020.6.13',
-    install_requires=[
-        'django-configurations',
-        'setuptools',
-    ],
-    packages=[
-        'django_configurations_celery',
-    ],
+    install_requires=open('requirements.txt').read().splitlines(),
+    packages=setuptools.find_packages()
 )

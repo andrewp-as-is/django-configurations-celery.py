@@ -1,13 +1,13 @@
 <!--
-https://pypi.org/project/readme-generator/
-https://pypi.org/project/python-readme-generator/
+https://readme42.com
 -->
+
 
 [![](https://img.shields.io/pypi/v/django-configurations-celery.svg?maxAge=3600)](https://pypi.org/project/django-configurations-celery/)
 [![](https://img.shields.io/badge/License-Unlicense-blue.svg?longCache=True)](https://unlicense.org/)
-[![Travis](https://api.travis-ci.org/andrewp-as-is/django-configurations-celery.py.svg?branch=master)](https://travis-ci.org/andrewp-as-is/django-configurations-celery.py/)
+[![](https://github.com/andrewp-as-is/django-configurations-celery.py/workflows/tests42/badge.svg)](https://github.com/andrewp-as-is/django-configurations-celery.py/actions)
 
-#### Installation
+### Installation
 ```bash
 $ [sudo] pip install django-configurations-celery
 ```
@@ -128,11 +128,11 @@ from kombu import Queue
 
 class Base(CeleryConfiguration,...):
     CELERY_IMPORTS = (
-        'celery_app',
-        'tasks',
+        'celery_app',   # ./celery_app.py
+        'tasks',        # ./tasks/
     )
     CELERY_QUEUES = (
-        Queue('default', routing_key='task.#'),
+        Queue('celery', routing_key='task.#'),
     )
 ```
 
@@ -140,7 +140,7 @@ class Base(CeleryConfiguration,...):
 use `DJANGO_` prefix
 ```bash
 DJANGO_BROKER_URL=redis://localhost:6379/0
-DJANGO_CELERY_IMPORTS=celery_app,tasks
+DJANGO_CELERY_IMPORTS=tasks
 ```
 
 #### Links
@@ -148,5 +148,5 @@ DJANGO_CELERY_IMPORTS=celery_app,tasks
 +   [Celery configuration and defaults](https://docs.celeryproject.org/en/latest/userguide/configuration.html)
 
 <p align="center">
-    <a href="https://pypi.org/project/python-readme-generator/">python-readme-generator</a>
+    <a href="https://readme42.com/">readme42.com</a>
 </p>
