@@ -1,6 +1,7 @@
 from configurations import Configuration, values
 
-class CeleryConfiguration(Configuration):
+
+class CeleryMixin:
     CELERY_ACCEPT_CONTENT = values.ListValue(['application/json'])
     CELERY_ENABLE_UTC = values.BooleanValue(True)
     CELERY_IMPORTS = values.ListValue([])
@@ -78,7 +79,7 @@ class CeleryConfiguration(Configuration):
     CELERY_ACKS_LATE = values.BooleanValue(False)
     CELERY_ACKS_ON_FAILURE_OR_TIMEOUT = values.BooleanValue(True)
     CELERY_ALWAYS_EAGER = values.BooleanValue(False)
-    CELERY_ANNOTATIONS = None # dict/list
+    CELERY_ANNOTATIONS = None  # dict/list
     CELERY_COMPRESSION = values.Value(None)
     CELERY_CREATE_MISSING_QUEUES = values.BooleanValue(True)
     CELERY_DEFAULT_DELIVERY_MODE = values.Value('persistent')
@@ -109,7 +110,8 @@ class CeleryConfiguration(Configuration):
     CELERY_ENABLE_REMOTE_CONTROL = values.BooleanValue(True)
     CELERYD_HIJACK_ROOT_LOGGER = values.BooleanValue(True)
     # CELERYD_LOG_COLOR
-    CELERYD_LOG_FORMAT = values.Value('[%(asctime)s: %(levelname)s/%(processName)s] %(message)s')
+    CELERYD_LOG_FORMAT = values.Value(
+        '[%(asctime)s: %(levelname)s/%(processName)s] %(message)s')
     CELERYD_WORKER_LOST_WAIT = values.FloatValue(10.0)
     CELERYD_MAX_TASKS_PER_CHILD = values.PositiveIntegerValue(None)
     CELERYD_POOL = values.Value('prefork')
@@ -124,3 +126,7 @@ class CeleryConfiguration(Configuration):
 [%(task_name)s(%(task_id)s)] %(message)s""")
     CELERYD_TIMER = values.Value(None)
     CELERYD_TIMER_PRECISION = values.FloatValue(1.0)
+
+
+class CeleryConfiguration(CeleryMixin, Configuration):
+    pass
